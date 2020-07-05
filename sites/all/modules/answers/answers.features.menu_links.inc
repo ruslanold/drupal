@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * answers.features.menu_links.inc
@@ -10,7 +11,7 @@
 function answers_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: menu-using-answers:node/add/question
+  // Exported menu link: menu-using-answers:node/add/question.
   $menu_links['menu-using-answers:node/add/question'] = array(
     'menu_name' => 'menu-using-answers',
     'link_path' => 'node/add/question',
@@ -28,7 +29,7 @@ function answers_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-48',
   );
-  // Exported menu link: menu-using-answers:questions/search
+  // Exported menu link: menu-using-answers:questions/search.
   $menu_links['menu-using-answers:questions/search'] = array(
     'menu_name' => 'menu-using-answers',
     'link_path' => 'questions/search',
@@ -46,7 +47,7 @@ function answers_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-49',
   );
-  // Exported menu link: menu-using-answers:questions/start_ask
+  // Exported menu link: menu-using-answers:questions/start_ask.
   $menu_links['menu-using-answers:questions/start_ask'] = array(
     'menu_name' => 'menu-using-answers',
     'link_path' => 'questions/start_ask',
@@ -69,7 +70,6 @@ function answers_menu_default_menu_links() {
   t('Ask a new question');
   t('Ask a new question (after searching)');
   t('Search for a question');
-
 
   return $menu_links;
 }

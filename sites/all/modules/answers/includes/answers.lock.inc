@@ -2,26 +2,27 @@
 
 /**
  * @file
- * Question locking functions for the 'Answers' module
- *
- * @author Chip Cleary
- *
+ * Question locking functions for the 'Answers' module.
  */
 
-/*
- * The Answers module allow questions to be "locked", meaning that users are no longer permitted to
- * provide new answers to them.
+/**
+ * The Answers module allow questions to be "locked", meaning that users are no.
  *
- * The logic about *which* questions to lock may be set by developers or by other modules. For example,
- * the Best Answer module locks questions after a Best Answer is selected while the (under construction)
- * Expire Questions module locks questions after they have passed an expiration date.
+ * Longer permitted to provide new answers to them.
+ *
+ * The logic about *which* questions to lock may be set by developers or by
+ * other modules. For example, the Best Answer module locks questions after a
+ * Best Answer is selected while the (under construction).
+ *
+ * Expire Questions module locks questions after they have passed an expiration
+ * date.
  *
  * To support locking, this file provides a hook and some utility functions.
  *
  * The hook:
- *   - hook_answers_lock_question_p: Modules that want to set or release locks should define this hook. It returns TRUE
+ *   - hook_answers_lock_question_p: Modules that want to set or release locks
+ * should define this hook. It returns TRUE
  *     if a question should be locked.
- *
  */
 
 module_load_include('inc', 'answers', 'includes/answers.field_utils');
@@ -49,7 +50,7 @@ function answers_reset_question_locks() {
 }
 
 /**
- * Reset the question lock for a single question
+ * Reset the question lock for a single question.
  */
 function answers_reset_question_lock($question) {
   $modules = module_implements('answers_lock_question_p');
@@ -64,12 +65,12 @@ function answers_reset_question_lock($question) {
 /**
  * Determines if a question should be locked or not.
  *
- * @param $question
+ * @param object $question
  *   A fully loaded question node.
- * @param $modules
+ * @param string $modules
  *   What modules to test.
  *
- * @return
+ * @return bool
  *   Returns TRUE if question should be locked, FALSE otherwise.
  */
 function answers_lock_question_p($question, $modules = NULL) {
@@ -89,7 +90,7 @@ function answers_lock_question_p($question, $modules = NULL) {
 /**
  * Lock a question.
  *
- * @param $question
+ * @param object $question
  *   A fully loaded question node.
  */
 function answers_lock_question($question) {
@@ -101,7 +102,7 @@ function answers_lock_question($question) {
 /**
  * Unlock a question.
  *
- * @param $question
+ * @param object $question
  *   A fully loaded question node.
  */
 function answers_unlock_question($question) {

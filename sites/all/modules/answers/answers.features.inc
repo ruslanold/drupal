@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * answers.features.inc
@@ -27,19 +28,19 @@ function answers_views_api() {
 function answers_node_info() {
   $items = array(
     'answer' => array(
-      'name' => t('Answer'),
+      'name' => t('!Answer', answers_translation()),
       'base' => 'node_content',
-      'description' => t('An answer provided to question asked by a member of the community'),
+      'description' => t('An !answer provided to !question asked by a member of the community', answers_translation()),
       'has_title' => '1',
-      'title_label' => t('Answer'),
+      'title_label' => t('!Answer', answers_translation()),
       'help' => '',
     ),
     'question' => array(
-      'name' => t('Question'),
+      'name' => t('!Question', answers_translation()),
       'base' => 'node_content',
-      'description' => t('A question which can be answered by other users'),
+      'description' => t('A !question which can be answered by other users', answers_translation()),
       'has_title' => '1',
-      'title_label' => t('Question'),
+      'title_label' => t('!Question', answers_translation()),
       'help' => '',
     ),
   );

@@ -5,7 +5,8 @@
  * The Answers Module overrides the default node theme implementation.
  *
  * Overrides implemented:
- *   - The title of an answers node is no longer linked to the node page (generally not relevant for answers nodes)
+ *   The title of an answers node is no longer linked to the node page
+ *   (generally not relevant for answers nodes)
  */
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>

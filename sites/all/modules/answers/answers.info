@@ -1,10 +1,10 @@
 name = Answers
 description = Provides a question and answer service
+configure = admin/config/content/answers
 core = 7.x
 package = Answers
 php = 5.2.4
-version = 7.x-3.x
-project = answers
+
 dependencies[] = eva
 dependencies[] = features
 dependencies[] = list
@@ -16,6 +16,7 @@ dependencies[] = number
 dependencies[] = references
 dependencies[] = strongarm
 dependencies[] = views
+files[] = answers.test
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:1
@@ -54,9 +55,8 @@ features[views_view][] = questions_list
 features[views_view][] = user_answers
 features[views_view][] = user_questions
 
-; Information added by Drupal.org packaging script on 2016-10-02
-version = "7.x-3.3"
+; Information added by Drupal.org packaging script on 2020-02-07
+version = "7.x-3.4"
 core = "7.x"
 project = "answers"
-datestamp = "1475378941"
-
+datestamp = "1581038616"

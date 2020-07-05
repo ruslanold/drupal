@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * answers.views_default.inc
@@ -12,10 +13,10 @@ function answers_views_default_views() {
 
   $view = new view();
   $view->name = 'answers_to_a_question';
-  $view->description = 'Answers to the current question';
+  $view->description = t('!Answers to the current !question', answers_translation());
   $view->tag = 'Answers';
   $view->base_table = 'node';
-  $view->human_name = 'Answers to a Question';
+  $view->human_name = t('!Answers to a !Question', answers_translation());
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -36,7 +37,7 @@ function answers_views_default_views() {
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = '<em>No answers yet</em>';
+  $handler->display->display_options['empty']['area']['content'] = t('<em>No !answers yet</em>', answers_translation());
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -91,7 +92,7 @@ function answers_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<em>No answers yet</em>'),
+    t('<em>No !answers yet</em>', answers_translation()),
     t('All'),
     t('Entity content'),
   );
@@ -99,10 +100,10 @@ function answers_views_default_views() {
 
   $view = new view();
   $view->name = 'questions_list';
-  $view->description = 'Displsy lists of questions';
+  $view->description = t('Display lists of !questions', answers_translation());
   $view->tag = 'Answers';
   $view->base_table = 'node';
-  $view->human_name = 'Questions List';
+  $view->human_name = t('!Questions List');
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -148,12 +149,12 @@ function answers_views_default_views() {
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = '<em>No questions match....</em>';
+  $handler->display->display_options['empty']['area']['content'] = t('<em>No !questions match....</em>', answers_translation());
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Question';
+  $handler->display->display_options['fields']['title']['label'] = t('!Question', answers_translation());
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
@@ -163,7 +164,7 @@ function answers_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_answer_count';
   $handler->display->display_options['fields']['entity_id']['field'] = 'field_answer_count';
-  $handler->display->display_options['fields']['entity_id']['label'] = 'Answers';
+  $handler->display->display_options['fields']['entity_id']['label'] = t('!Answers', answers_translation());
   $handler->display->display_options['fields']['entity_id']['empty'] = 'none';
   $handler->display->display_options['fields']['entity_id']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['entity_id']['type'] = 'nodereference_count_default';
@@ -195,7 +196,7 @@ function answers_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = '<em>No results ....</em>';
   $handler->display->display_options['path'] = 'questions/all';
   $handler->display->display_options['menu']['type'] = 'default tab';
-  $handler->display->display_options['menu']['title'] = 'All Questions';
+  $handler->display->display_options['menu']['title'] = t('All !Questions', answers_translation());
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['tab_options']['weight'] = '0';
 
@@ -207,7 +208,7 @@ function answers_views_default_views() {
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = '<em>All questions have been answered ...</em>';
+  $handler->display->display_options['empty']['area']['content'] = t('<em>All !questions have been answered ...</em>', answers_translation());
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -230,14 +231,14 @@ function answers_views_default_views() {
   $handler->display->display_options['filters']['field_answer_count_count']['value']['value'] = '1';
   $handler->display->display_options['path'] = 'questions/unanswered';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Unanswered Questions';
+  $handler->display->display_options['menu']['title'] = t('Unanswered !Questions', answers_translation());
   $handler->display->display_options['menu']['weight'] = '30';
 
   /* Display: Search Questions */
   $handler = $view->new_display('page', 'Search Questions', 'page_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Search for questions';
-  $handler->display->display_options['display_description'] = 'Search for a question';
+  $handler->display->display_options['title'] = t('Search for !questions', answers_translation());
+  $handler->display->display_options['display_description'] = t('Search for a !question', answers_translation());
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
@@ -271,13 +272,13 @@ function answers_views_default_views() {
   /* Display: Search & Add Page */
   $handler = $view->new_display('page', 'Search & Add Page', 'page_5');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Check whether your question has already been asked';
+  $handler->display->display_options['title'] = t('Check whether your !question has already been asked', answers_translation());
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = '<em>No questions match ....</em>';
+  $handler->display->display_options['empty']['area']['content'] = t('<em>No !questions match ....</em>', answers_translation());
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -317,32 +318,32 @@ function answers_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<em>No questions match....</em>'),
-    t('Question'),
+    t('<em>No !questions match....</em>', answers_translation()),
+    t('!Question', answers_translation()),
     t('Post date'),
-    t('Answers'),
+    t('!Answers', answers_translation()),
     t('none'),
     t('Default Page View'),
-    t('All Questions'),
+    t('All !Questions', answers_translation()),
     t('<em>No results ....</em>'),
-    t('Unanswered Questions'),
-    t('<em>All questions have been answered ...</em>'),
-    t('Search Questions'),
-    t('Search for questions'),
-    t('Search for a question'),
+    t('Unanswered !Questions', answers_translation()),
+    t('<em>All !questions have been answered ...</em>', answers_translation()),
+    t('Search !Questions', answers_translation()),
+    t('Search for !questions', answers_translation()),
+    t('Search for a !question', answers_translation()),
     t('Search: Search Terms'),
     t('Search & Add Page'),
-    t('Check whether your question has already been asked'),
-    t('<em>No questions match ....</em>'),
+    t('Check whether your !question has already been asked', answers_translation()),
+    t('<em>No !questions match ....</em>', answers_translation()),
   );
   $export['questions_list'] = $view;
 
   $view = new view();
   $view->name = 'user_answers';
-  $view->description = 'Questions to which a user has provided answers';
+  $view->description = t('!Questions to which a user has provided !answers', answers_translation());
   $view->tag = 'Answers';
   $view->base_table = 'node';
-  $view->human_name = 'User Answers';
+  $view->human_name = t('User !Answers', answers_translation());
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -389,7 +390,7 @@ function answers_views_default_views() {
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = '<em>You have not yet answered any questions ...</em>';
+  $handler->display->display_options['empty']['area']['content'] = t('<em>You have not yet answered any !questions ...</em>', answers_translation());
   /* Relationship: Content: Answer to the question (field_answer_question) */
   $handler->display->display_options['relationships']['field_answer_question_nid']['id'] = 'field_answer_question_nid';
   $handler->display->display_options['relationships']['field_answer_question_nid']['table'] = 'field_data_field_answer_question';
@@ -405,7 +406,7 @@ function answers_views_default_views() {
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
   $handler->display->display_options['fields']['title_1']['relationship'] = 'field_answer_question_nid';
-  $handler->display->display_options['fields']['title_1']['label'] = 'Question';
+  $handler->display->display_options['fields']['title_1']['label'] = t('!Question', answers_translation());
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title_1']['hide_empty'] = TRUE;
   /* Field: Content: Post date */
@@ -421,7 +422,7 @@ function answers_views_default_views() {
   $handler->display->display_options['fields']['field_answer_count']['table'] = 'field_data_field_answer_count';
   $handler->display->display_options['fields']['field_answer_count']['field'] = 'field_answer_count';
   $handler->display->display_options['fields']['field_answer_count']['relationship'] = 'field_answer_question_nid';
-  $handler->display->display_options['fields']['field_answer_count']['label'] = 'Answers';
+  $handler->display->display_options['fields']['field_answer_count']['label'] = t('!Answers', answers_translation());
   $handler->display->display_options['fields']['field_answer_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_answer_count']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_answer_count']['type'] = 'nodereference_count_default';
@@ -463,8 +464,8 @@ function answers_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'user/%/questions/answered';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Questions Answered';
-  $handler->display->display_options['menu']['description'] = 'Questions to which you have provided answers';
+  $handler->display->display_options['menu']['title'] = t('!Questions Answered', answers_translation());
+  $handler->display->display_options['menu']['description'] = t('!Questions to which you have provided !answers', answers_translation());
   $handler->display->display_options['menu']['weight'] = '20';
   $translatables['user_answers'] = array(
     t('Master'),
@@ -481,23 +482,23 @@ function answers_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<em>You have not yet answered any questions ...</em>'),
+    t('<em>You have not yet answered any !questions ...</em>', answers_translation()),
     t('field_answer_question'),
     t('author'),
-    t('Question'),
+    t('!Question', answers_translation()),
     t('Post date'),
-    t('Answers'),
+    t('!Answers', answers_translation()),
     t('All'),
-    t('User Profile - Questions Answered'),
+    t('User Profile - !Questions Answered', answers_translation()),
   );
   $export['user_answers'] = $view;
 
   $view = new view();
   $view->name = 'user_questions';
-  $view->description = 'Questions a user has asked';
+  $view->description = t('!Questions a user has asked', answers_translation());
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'User Questions';
+  $view->human_name = t('User !Questions', answers_translation());
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -530,7 +531,7 @@ function answers_views_default_views() {
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = '<em>You have not yet asked any questions ...</em>';
+  $handler->display->display_options['empty']['area']['content'] = t('<em>You have not yet asked any !questions ...</em>', answers_translation());
   /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
@@ -539,7 +540,7 @@ function answers_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Question';
+  $handler->display->display_options['fields']['title']['label'] = t('!Question', answers_translation());
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
@@ -553,7 +554,7 @@ function answers_views_default_views() {
   $handler->display->display_options['fields']['field_answer_count']['id'] = 'field_answer_count';
   $handler->display->display_options['fields']['field_answer_count']['table'] = 'field_data_field_answer_count';
   $handler->display->display_options['fields']['field_answer_count']['field'] = 'field_answer_count';
-  $handler->display->display_options['fields']['field_answer_count']['label'] = 'Answers';
+  $handler->display->display_options['fields']['field_answer_count']['label'] = t('!Answers', answers_translation());
   $handler->display->display_options['fields']['field_answer_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_answer_count']['type'] = 'nodereference_count_default';
   /* Sort criterion: Content: Post date */
@@ -594,8 +595,8 @@ function answers_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'user/%/questions';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Your Questions';
-  $handler->display->display_options['menu']['description'] = 'Questions you have asked and answered';
+  $handler->display->display_options['menu']['title'] = t('Your !Questions', answers_translation());
+  $handler->display->display_options['menu']['description'] = t('!Questions you have asked and answered', answers_translation());
   $handler->display->display_options['menu']['weight'] = '0';
 
   /* Display: Questions Asked */
@@ -603,8 +604,8 @@ function answers_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'user/%/questions/asked';
   $handler->display->display_options['menu']['type'] = 'default tab';
-  $handler->display->display_options['menu']['title'] = 'Questions Asked';
-  $handler->display->display_options['menu']['description'] = 'Questions You Have Asked';
+  $handler->display->display_options['menu']['title'] = t('!Questions Asked', answers_translation());
+  $handler->display->display_options['menu']['description'] = t('!Questions You Have Asked', answers_translation());
   $handler->display->display_options['menu']['weight'] = '0';
   $translatables['user_questions'] = array(
     t('Master'),
@@ -621,14 +622,14 @@ function answers_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<em>You have not yet asked any questions ...</em>'),
+    t('<em>You have not yet asked any !questions ...</em>', answers_translation()),
     t('author'),
-    t('Question'),
+    t('!Question', answers_translation()),
     t('Post date'),
-    t('Answers'),
+    t('!Answers', answers_translation()),
     t('All'),
-    t('Your Questions'),
-    t('Questions Asked'),
+    t('Your !Questions', answers_translation()),
+    t('!Questions Asked', answers_translation()),
   );
   $export['user_questions'] = $view;
 

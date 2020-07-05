@@ -2,21 +2,18 @@
 
 /**
  * @file
- * Field utility functions for the 'Answers' module
- *
- * @author Chip Cleary
- *
+ * Field utility functions for the 'Answers' module.
  */
 
 /**
  * Returns the value of a field for a node.
  *
- * @param $node
+ * @param object $node
  *   The node that contains the field.
- * @param $field
+ * @param string $field
  *   The field name.
  *
- * @return
+ * @return mixed
  *   The value of the field.
  */
 function answers_field_get_value($node, $field) {
@@ -27,12 +24,12 @@ function answers_field_get_value($node, $field) {
 /**
  * Returns a referenced node for a given field.
  *
- * @param $source_node
+ * @param object $source_node
  *   The node that contains the reference to another node.
- * @param $field
+ * @param string $field
  *   The reference field name.
  *
- * @return
+ * @return object
  *   A fully loaded node object.
  */
 function answers_field_get_node_reference($source_node, $field) {
@@ -40,4 +37,3 @@ function answers_field_get_node_reference($source_node, $field) {
   $target_nid = $items[0]['nid'];
   return node_load($target_nid);
 }
-

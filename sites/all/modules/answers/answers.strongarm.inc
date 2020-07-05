@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * answers.strongarm.inc

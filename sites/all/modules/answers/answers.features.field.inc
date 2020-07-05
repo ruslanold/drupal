@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * answers.features.field.inc
@@ -146,7 +147,7 @@ function answers_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_answer_question',
-      'label' => 'Answer to the question',
+      'label' => format_string('!Answer to the !question', answers_translation()),
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -161,9 +162,9 @@ function answers_field_default_fields() {
           'node_link' => array(
             'destination' => 'node',
             'full' => 1,
-            'hover_title' => 'Post a new answer to this question',
+            'hover_title' => format_string('Post a new !answer to this !question', answers_translation()),
             'teaser' => 0,
-            'title' => 'Post an Answer',
+            'title' => t('Post an !Answer', answers_translation()),
           ),
         ),
         'type' => 'nodereference_url',
@@ -284,7 +285,7 @@ function answers_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_answer_count',
-      'label' => 'Answer Count',
+      'label' => format_string('!Answer Count', answers_translation()),
       'required' => 0,
       'settings' => array(
         'count_only_published' => 1,
@@ -337,7 +338,7 @@ function answers_field_default_fields() {
         ),
       ),
       'deleted' => '0',
-      'description' => 'Would you like to receive notifications by email when users post answers to your question?',
+      'description' => format_string('Would you like to receive notifications by email when users post !answers to your !question?', answers_translation()),
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -354,7 +355,7 @@ function answers_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_notify_p',
-      'label' => 'Notify on Answer',
+      'label' => format_string('Notify on !Answer', answers_translation()),
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -422,7 +423,7 @@ function answers_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_question_locked_p',
-      'label' => 'Question Locked',
+      'label' => format_string('!Question Locked', answers_translation()),
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -441,12 +442,18 @@ function answers_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Answer Count');
-  t('Answer to the question');
+  t('!Answer Count', answers_translation());
+  t(
+    '!Answers to the !question',
+    answers_translation()
+  );
   t('Description');
-  t('Notify on Answer');
-  t('Question Locked');
-  t('Would you like to receive notifications by email when users post answers to your question?');
+  t('Notify on !Answer', answers_translation());
+  t('!Question Locked', answers_translation());
+  t(
+    'Would you like to receive notifications by email when users post !answers_trans_lcanswers to your !answers_trans_lcquestion?',
+    answers_translation()
+  );
 
   return $fields;
 }

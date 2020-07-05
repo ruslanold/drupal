@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * answers.features.menu_custom.inc
@@ -19,8 +20,7 @@ function answers_menu_default_menu_custom() {
   // Translatables
   // Included for use with string extractors like potx.
   t('The "Using Answers" menu contains several links that are helpful for using the Q&A service');
-  t('Using Answers');
-
+  t('Using !Answers', answers_translation());
 
   return $menus;
 }
